@@ -1,0 +1,19 @@
+.Add {
+  //   background-color: aqua;
+  padding-top: 30px;
+
+  > input {
+    padding: 5px 10px;
+    ::placeholder {
+      text-align: center;
+    }
+  }
+  > button {
+    padding: 5px 10px;
+    color: white;
+    background-color: black;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
