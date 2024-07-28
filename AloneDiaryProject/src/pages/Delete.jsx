@@ -1,44 +1,40 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Item from "../components/Item";
 import { ItemStateContext, ItemDispatchContext } from "../App";
+import Button from "../components/Button";
 
 const Delete = () => {
   const { items } = useContext(ItemStateContext);
-  const { onDelete } = useContext(ItemDispatchContext);
+  const { onDelete, onToggleButton } = useContext(ItemDispatchContext);
 
-  const { deleteItems, setDeleteItems } = useState([]);
-
-  const onDeleteItem = (e, id) => {
-    const { name, value } = e.target;
-    if (value) {
-      onDelete(id);
-    }
-  };
-
-  const onClickButton = (id, isChecked) => {
-    if (!isChecked) {
-      setDeleteItems((prevList) => [...prevList, { id: !isChecked }]);
-    } else {
-      setDeleteItems((prevList) => {
-        return prevList.filter((itemId) => itemId !== id);
-      });
-    }
-    console.log(deleteItems);
-  };
+  const onClick = () => {
+    items.filter((item) => item.isChecked).forEach(element => {
+      onDelete(element.id);
+    });
+  }
+  
+  
 
   return (
     <div>
+      <Button text={'삭제'} onClick={onClick}/>
       {items.map((item) => {
         const itemIndex2 =
           items.findIndex((filteredItem) => filteredItem.id === item.id) + 1;
         return (
+          
           <Item
             key={item.id}
             id={item.id}
             item={item}
             value={item}
-            onClickButton={onClickButton}
-          />
+            index={itemIndex2}
+          >
+            <input
+        type="checkbox"
+          onClick={() => onToggleButton(item.id)}
+      ></input>
+          </Item>
         );
       })}
     </div>

@@ -59,7 +59,17 @@ function reducer(state, action) {
           ].filter((item) => item.quantity > 0)
         : state;
     case "DELETE":
-      return state.filter((item) => action.data.filter((filteredItem) => filteredItem.id === item.id)[0] === item.id)
+      return state.filter((item) => item.id !== action.data.id)
+    case "TOGGLE_ITEM":
+      return state.map((item) => {
+        if(item.id === action.data.id){
+          return {
+            ...item,
+            isChecked : !item.isChecked,
+          }
+        }
+        return item
+      })
   }
 }
 
@@ -100,9 +110,9 @@ function App() {
   const [menus, dispatchMenu] = useReducer(reducer, mockData_menus);
   const idRef = useRef(3);
 
-  useEffect(() => {
-    console.log(items);
-  }, [items]);
+  // useEffect(() => {
+  //   console.log(items);
+  // }, [items]);
 
   const onCreate = ({ id, name, barcode, location, quantity }) => {
     dispatch({
@@ -130,7 +140,8 @@ function App() {
     });
   };
 
-  const onDelete = ({id}) => {
+  const onDelete = (id) => {
+    // console.log('딜리트', id);
     dispatch({
       type: "DELETE",
       data :{
@@ -139,9 +150,19 @@ function App() {
     })
   }
 
+  const onToggleButton = (id) => {
+    console.log(id);
+    dispatch({
+      type: "TOGGLE_ITEM",
+      data : {
+        id : id,
+      }
+    })
+  }
+
   return (
     <ItemStateContext.Provider value={{ items, idRef }}>
-      <ItemDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
+      <ItemDispatchContext.Provider value={{ onCreate, onUpdate, onDelete, onToggleButton }}>
         <div className="Navigation">
           <div className="Navigation-title">메뉴</div>
           {menus.map((menu) => (

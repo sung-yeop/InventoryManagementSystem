@@ -1,13 +1,10 @@
 import "./Item.scss";
 import { useState, useContext, useEffect, useRef } from "react";
 
-const Item = ({ id, value, onChange, index, item, onClickButton }) => {
+const Item = ({ id, value, onChange, index, item, onClickButton, children }) => {
   return (
     <div className="Item">
-      <input
-        type="checkbox"
-        onChange={(e) => onClickButton(id, item.isChecked)}
-      ></input>
+      {children}
       <span>{index}</span>
       <span>{item.name}</span>
       <span>{item.barcode}</span>
