@@ -2,7 +2,7 @@ import "./Home.scss";
 import Button from "../components/Button";
 
 const Home = () => {
-  return <div className="Home">'우아한형제들'에 오신걸 환영합니다.</div>;
+  return <div className="Home">재고 관리 시스템</div>;
 };
 
 export default Home;

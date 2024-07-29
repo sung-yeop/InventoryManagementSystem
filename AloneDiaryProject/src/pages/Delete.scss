@@ -1,0 +1,32 @@
+.Delete{
+    display : flex;
+    flex-direction: column;
+    flex: 1;
+    button {
+        margin: 0 auto;
+        width: 300px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+        height: 50px;
+        padding : 10px 30px;
+        text-align: center;
+        justify-content: center;
+        margin-bottom : 30px;
+    }
+    .Item {
+        display: flex;
+        gap : 5px;
+        border: 1px solid gray;
+        padding :  15px 0;
+        span{
+            border: gray;
+        }
+        .updateBox{
+            display: none;
+        }
+    }
+    
+}

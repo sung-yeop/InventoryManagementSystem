@@ -1,3 +1,22 @@
 .Edit{
+    display: flex;
+    flex-direction: column;
     width: 1200px;
+    .SearchBar{
+        padding: 10px 30px;
+        border-bottom: 1px solid gray;
+    }
+    button{
+        border: none;
+        padding: 10px 30px;
+        border-radius: 5px;        
+    }
+    > button{   
+        margin-top:10px;
+        width: 120px;
+        margin-left: auto;
+        border-radius: 5px;
+        color: white;
+        background-color: green;
+    }
 }

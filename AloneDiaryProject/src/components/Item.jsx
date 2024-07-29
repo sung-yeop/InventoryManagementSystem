@@ -11,12 +11,14 @@ const Item = ({ id, value, onChange, index, item, onClickButton, children }) => 
       <span>{item.location}</span>
       <span>{item.quantity}</span>
       <input
+      className="updateBox"
         name={`${id}_update_location`}
         placeholder="이동 로케이션"
         value={value[`${id}_update_location`] || ""}
         onChange={(e) => onChange(e, id)}
       ></input>
       <input
+      className="updateBox"
         name={`${id}_update_quantity`}
         placeholder="이동 수량"
         value={value[`${id}_update_quantity`] || ""}

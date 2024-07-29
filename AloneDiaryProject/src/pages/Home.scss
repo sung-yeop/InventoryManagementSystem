@@ -1,7 +1,9 @@
 .Home {
   display: flex;
-  background-color: beige;
-  flex: 0.9;
-  justify-content: left;
+  background-color: rgba(170, 170, 170, 0.5);
+  flex: 1;
+  justify-content: center;
+  font-size: 70px;
+  font-weight: 500;
   align-items: center;
 }

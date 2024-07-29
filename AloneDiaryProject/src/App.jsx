@@ -141,7 +141,6 @@ function App() {
   };
 
   const onDelete = (id) => {
-    // console.log('딜리트', id);
     dispatch({
       type: "DELETE",
       data :{
@@ -151,7 +150,6 @@ function App() {
   }
 
   const onToggleButton = (id) => {
-    console.log(id);
     dispatch({
       type: "TOGGLE_ITEM",
       data : {

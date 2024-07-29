@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import Item from "../components/Item";
 import { ItemStateContext, ItemDispatchContext } from "../App";
 import Button from "../components/Button";
+import './Delete.scss'
 
 const Delete = () => {
   const { items } = useContext(ItemStateContext);
@@ -16,7 +17,7 @@ const Delete = () => {
   
 
   return (
-    <div>
+    <div className="Delete">
       <Button text={'삭제'} onClick={onClick}/>
       {items.map((item) => {
         const itemIndex2 =
