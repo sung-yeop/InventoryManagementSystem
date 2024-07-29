@@ -23,9 +23,9 @@ const SearchBar = ({ text }) => {
   const onClickButton = () => {
     const tempList = items.filter(
       (item) =>
-        item.name === search.name ||
-        item.barcode === search.barcode ||
-        item.location === search.location
+        (item.name === search.name || search.name==="") &&
+        (item.barcode === search.barcode || search.barcode==="") &&
+        (item.location === search.location || search.location === "")
     );
     setFilteredList(tempList.length === 0 ? items : tempList);
   };
